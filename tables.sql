@@ -7,38 +7,33 @@ DROP TABLE IF EXISTS item_category;
 DROP TABLE IF EXISTS employee;
 DROP TABLE IF EXISTS employee_permissions;
 DROP TABLE IF EXISTS location;
-DROP TABLE IF EXISTS waiver;
 DROP TABLE IF EXISTS student;
 
 
 CREATE TABLE student(
-	id int PRIMARY KEY,
+	id int AUTO_INCREMENT PRIMARY KEY,
 	pawprint VARCHAR(16),
 	email VARCHAR(255),
 	name_first VARCHAR(30),
 	name_last VARCHAR(45),
 	password VARCHAR(255),
 	salt VARCHAR(255),
-	privilege VARCHAR(255)
-) ENGINE = INNODB;
-
-CREATE TABLE waiver(
-	student_id int PRIMARY KEY,
-	FOREIGN KEY(student_id) references student(id)
+	privilege VARCHAR(255),
+	has_waiver int
 ) ENGINE = INNODB;
 
 CREATE TABLE location(
-	id int PRIMARY KEY,
+	id int AUTO_INCREMENT PRIMARY KEY,
 	name VARCHAR(250)
 ) ENGINE = INNODB;
 
 CREATE TABLE employee_permissions(
-	id int PRIMARY KEY,
+	id int AUTO_INCREMENT PRIMARY KEY,
 	name VARCHAR(250)
 ) ENGINE = INNODB;
 
 CREATE TABLE employee(
-	id int PRIMARY KEY,
+	id int AUTO_INCREMENT PRIMARY KEY,
 	username VARCHAR(16),
 	email VARCHAR(255),
 	name_first VARCHAR(30),
@@ -48,7 +43,7 @@ CREATE TABLE employee(
 ) ENGINE = INNODB;
 
 CREATE TABLE item_category(
-	id int PRIMARY KEY,
+	id int AUTO_INCREMENT PRIMARY KEY,
 	name VARCHAR(250)
 ) ENGINE = INNODB;
 
@@ -66,7 +61,7 @@ CREATE TABLE item_has_category(
 ) ENGINE = INNODB;
 
 CREATE TABLE item_condition(
-	id int PRIMARY KEY,
+	id int AUTO_INCREMENT PRIMARY KEY,
 	name VARCHAR(250)
 ) ENGINE = INNODB;
 
